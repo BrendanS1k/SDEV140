@@ -1,0 +1,23 @@
+# Auther: Brendan South
+# Date Written: 7/10/14 - 
+# Assignment: SDEV 140 Final Project
+# This program is a game of Rock paper scissors. You pick between the 3 and the computer randomly pick as well. This program will then tell you who won and keeps going until stopped
+
+import random
+
+# Create the choice list and how the computer will choose it's answer
+def game(userChoice):
+    choices = ["rock", "paper", "scissors"]
+    computerChoice = random.choice(choices)
+    result = ""
+    
+    # Create the rules of rock paper scissors and all different combinations.
+    if userChoice == computerChoice:
+        result = "It's a tie!"
+    elif (userChoice == "rock" and computerChoice == "scissors") or \
+         (userChoice == "paper" and computerChoice == "rock") or \
+         (userChoice == "scissors" and computerChoice == "paper"):
+        result = "You win!"
+    else:
+        result = "The computer wins!"
+    result_label.config(text=f"You chose: {userChoice}\nComputer chose: {computerChoice}\n{result}")
